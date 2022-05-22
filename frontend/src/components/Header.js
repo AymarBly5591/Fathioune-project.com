@@ -1,46 +1,63 @@
-import React from "react";
-import {Link } from "react-router-dom";
+import React , {useState} from "react";
+import {Link ,  useNavigate } from "react-router-dom";
 import { BiCart } from "react-icons/bi";
 import { RiUserLine } from "react-icons/ri";
+import CartList from "../components/CartList";
 
 const Header = () => {
+  const  navigate  =  useNavigate();
+  const  [btnCart , setCart] =  useState(false);
+
   return (
     <div className="relative bg-white border border-b">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="w-full mx-auto px-4 sm:px-6">
         <div className="flex align-center justify-between py-6">
           {/* Logo */}
-          <Link to="/"><h1 className="text-2xl text-orange-700">My Fatihoune</h1></Link>
+          <Link to="/"><h1 className="text-1xl text-orange-700">My Fatihoune</h1></Link>
           <div className="flex align-center space-x-4">
             {/* Search Bar */}
-            <div className="flex align-center space-x-2 border">
-              <select className=" text-lg border p-2 w-[150px] rounded-md">
-                  <option><Link to={"/cart"}><button>Tout catégories</button></Link></option>
-                  <option> <Link to={"/cart"}><button>Informatique</button></Link></option>
-              </select> 
+            <div className="flex align-center space-x-2 h-14 border">
+              <button type="button" onClick={()=>{
+                setCart(!btnCart);
+                console.log(btnCart);
+              }} onHoverStart={()=>{setCart(true) ;  console.log(btnCart)}}
+              onHoverEnd={()=>{setCart(false) ;  console.log(btnCart)}}
+               className="bg-gray-200 rounded p-2">
+                 catégories
+              </button>
+              {
+                btnCart == true ? <CartList/> : null
+              }
+              
               <input
-                className="text-lg border p-2 w-[350px] rounded-md"
+                className="text-lg border p-2 w-full h-12  lg:w-[350px] rounded-md"
                 type="text"
                 placeholder="Rechercher un produit"
               />
-              <button className="text-lg bg-orange-500 text-white rounded-md px-2">
+              <button onClick={()=>{ navigate("/search")}} className="text-lg bg-orange-500 h-12 text-white rounded-md px-2">
                 Rechercher
               </button>
             </div>
             {/* Se connecter */}
             <Link to="/signin"
-              className="text-lg py-2 flex align-center text-center hover:text-orange-500"
+              className=" xs:invisible sm:visible md:visible lg:visible  py-2 flex align-center text-center hover:text-orange-500"
             >
               Se connecter
             </Link>
             {/* S'enregistrer */}
             <Link to={"/signup"}
-              className="text-lg py-2 flex align-center text-center hover:text-orange-500"
+              className="text-lg xs:invisible sm:visible md:visible lg:visible py-2 flex align-center text-center hover:text-orange-500"
               href="#/"
             >
               S'enregistrer
             </Link>
+            <Link to="/profile"
+              className="text-lg xs:invisible sm:visible md:visible lg:visible py-2 flex align-center text-center hover:text-orange-500"
+            >
+              profile
+            </Link>
             <Link to="/help"
-              className="text-lg py-2 flex align-center text-center hover:text-orange-500"
+              className="text-lg xs:invisible sm:visible md:visible lg:visible py-2 flex align-center text-center hover:text-orange-500"
             >
               aide
             </Link>

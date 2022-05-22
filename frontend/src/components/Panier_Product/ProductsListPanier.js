@@ -1,10 +1,9 @@
 
-
 import React, { useState } from "react";
 import {BiCart } from "react-icons/bi"
 
-function ProductsListPanier() {
-    const [show, setShow] = useState(false);
+function ProductsListPanier({products}) {
+    
     return (
         
             <div>
@@ -20,80 +19,39 @@ function ProductsListPanier() {
                                     <p className="text-5xl font-bold underline leading-10 text-gray-800 pt-3 py-3 flex"><BiCart className="w-10 h-10 mx-2 font-bold" /> votre panier</p>
                                     </div>
                                    <div class="overflow-y overflow-x-hidden h-screen">
-                                    <div className="md:flex items-center mt-14 py-8 border-t border-gray-200">
-                                        <div className="w-1/6">
-                                            <img src="https://cdn.tuk.dev/assets/templates/e-commerce-kit/bestSeller3.png" alt className="w-full h-full object-center object-cover" />
-                                        </div>
-                                        <div className="md:pl-3 md:w-3/4 w-full">
-                                            <div className="flex items-center justify-between">
-                                               <p className="text-base font-black leading-none text-gray-800 thro">Bague en diamant</p>
-                                               <p className="text-base font-black  leading-none text-gray-800">$9,000</p>
-                                            </div>  
-                                            
-                                            <div className="flex items-center justify-between pt-10">
-                                                 <div className="flex itemms-center">
-                                                   <button type="button" className="text-xs leading-9 text-white bg-red-400 rounded hover:bg-red-600 mx-5 px-5 cursor-pointer">Supprimer</button>
-                                                </div>
-                                                <div className="flex  ">
-                                                    <div className="flex py-2 px-1 border border-gray-200 mr-6 focus:outline-none">
-                                                        <button type="button" className="leading-15 text-white font-bold rounded bg-orange-500 hover:bg-orange-800 mr-2 text-white h-10 w-10">-</button>
-                                                        <p className="text-black justify-content center aligns-item-center mx-3 py-2 font-bold">2</p>
-                                                        <button type="button" className="leading-15 text-white font-bold rounded bg-orange-500 hover:bg-orange-800 ml-2 mr-1 text-white h-10 w-10">+</button>
+                                       
+                                       {
+                                           products.map((produit)=>{
+                                               return(
+                                                   <div className="md:flex items-center mt-14 py-3 border-t border-gray-200">
+                                                       <div className="w-1/6">
+                                                           <img src={produit.imageSrc} alt={produit.imageAlt} className="w-full h-full object-center object-cover" />
+                                                        </div>
+                                                        <div className="md:pl-3 md:w-3/4 w-full">
+                                                            <div className="flex items-center justify-between">
+                                                                 <p className="text-base font-black leading-none text-gray-800 thro">{produit.name}</p>
+                                                                 <p className="text-base font-black  leading-none text-gray-800">{produit.price} Franc cfa</p>
+                                                            </div>  
+                                                            <div className="flex items-center justify-between pt-3">
+                                                                  <div className="flex itemms-center">
+                                                                     <button type="button" className="text-xs leading-9 text-white bg-red-400 rounded hover:bg-red-600 mx-5 px-5 cursor-pointer">Supprimer</button>
+                                                                  </div>
+                                                                  <div className="flex  ">
+                                                                      <div className="flex py-2 px-1 border border-gray-200 mr-6 focus:outline-none">
+                                                                            <button type="button" className="leading-15 text-white font-bold rounded bg-orange-500 hover:bg-orange-800 mr-2 text-white h-10 w-10">-</button>
+                                                                            <p className="text-black justify-content center aligns-item-center mx-3 py-2 font-bold">2</p>
+                                                                            <button type="button" className="leading-15 text-white font-bold rounded bg-orange-500 hover:bg-orange-800 ml-2 mr-1 text-white h-10 w-10">+</button>
+                                                                      </div>
+                                                                  </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="md:flex items-center py-8 border-t border-gray-200">
-                                        <div className="w-1/6">
-                                            <img src="https://cdn.tuk.dev/assets/templates/e-commerce-kit/bestSeller2.png" alt className="w-full h-full object-center object-cover" />
-                                        </div>
-                                        <div className="md:pl-3 md:w-3/4 w-full">
-                                            <div className="flex items-center justify-between">
-                                               <p className="text-base font-black leading-none text-gray-800">Bague en diamant</p>
-                                               <p className="text-base font-black  leading-none text-gray-800">$9,000</p>
-                                            </div>  
-                                            
-                                            <div className="flex items-center justify-between pt-10">
-                                            <div className="flex itemms-center">
-                                                <button type="button" className="text-xs leading-9 text-white bg-red-400 rounded hover:bg-red-600 mx-5 px-5 cursor-pointer">Supprimer</button>
-                                            </div>
-                                            <div className="flex  ">
-                                              <div className="flex py-2 px-1 border border-gray-200 mr-6 focus:outline-none">
-                                                <button type="button" className="leading-15 text-white font-bold rounded bg-orange-500 hover:bg-orange-800 mr-2 text-white h-10 w-10">-</button>
-                                                <p className="text-black justify-content center aligns-item-center mx-3 py-2 font-bold">2</p>
-                                                <button type="button" className="leading-15 text-white font-bold rounded bg-orange-500 hover:bg-orange-800 ml-2 mr-1 text-white h-10 w-10">+</button>
-                                             </div>
-                                           </div>
-                                            
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div className="md:flex items-center py-3 border-t border-b border-gray-200">
-                                        <div className="h-full w-1/6">
-                                            <img src="https://cdn.tuk.dev/assets/templates/e-commerce-kit/bestSeller1.png" alt className="w-full h-full object-center object-cover" />
-                                        </div>
-                                        <div className="md:pl-3 md:w-3/4 w-full">
-                                            <div className="flex items-center justify-between">
-                                               <p className="text-base font-black leading-none text-gray-800">Luxe Signature Shoes</p>
-                                               <p className="text-base font-black  leading-none text-gray-800">$9,000</p>
-                                            </div>                                            
-                                             
-                                            <div className="flex items-center justify-between pt-10">
-                                                <div className="flex itemms-center">
-                                                    <button type="button" className="text-xs leading-9 text-white bg-red-400 rounded hover:bg-red-600 mx-5 px-5 cursor-pointer">Supprimer</button>
-                                                </div>
-                                                <div className="flex  ">
-                                                  <div className="flex py-2 px-1 border border-gray-200 mr-6 focus:outline-none">
-                                                    <button type="button" className="leading-15 text-white font-bold rounded bg-orange-500 hover:bg-orange-800 mr-2 text-white h-10 w-10">-</button>
-                                                    <p className="text-black justify-content center aligns-item-center mx-3 py-2 font-bold">2</p>
-                                                    <button type="button" className="leading-15 text-white font-bold rounded bg-orange-500 hover:bg-orange-800 ml-2 mr-1 text-white h-10 w-10">+</button>
-                                                 </div>
-                                               </div>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
+                                               )
+                                           })
+                                       }
+                                      
+                                    
+                                    
                                     </div>
                                 </div>
                                 <div className="xl:w-1/2 md:w-1/3 xl:w-1/4 w-full bg-gray-100 h-full m-2 rounded">

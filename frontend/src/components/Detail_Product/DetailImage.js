@@ -40,7 +40,8 @@ function DetailImage() {
                     <div className="flex-col items-center border-red-300 py-5"><h1 className="font-extrabold  "> {prod[4]} Francs Cfa <span className="text-white bg-yellow-400 py-1 px-2 ">- 60%</span></h1><h1 className="line-through px-2"> 6500 Fcfa</h1></div>
                 </div>
                 <div className="border-b py-1 ">Livraison gratuite {"(vous économise 850 Fcfa)"} </div>
-                <button className="flex flex-row items-center justify-center rounded bg-gray-700 py-2 w-full px-3 hover:border-gray-300 text-white hover:bg-gray-800  "><FaMoneyBill className="h-10 w-5 mx-3 "/> J'achète <span className="font-extrabold text-white mx-2"> {prod[4]} Fcfa</span></button>
+                <button className="flex my-1 flex-row items-center justify-center rounded bg-orange-500 py-2 w-full px-3 hover:border-orange-200 text-white hover:bg-orange-600  "><FaMoneyBill className="h-10 w-5 mx-3 "/>  <span className="font-extrabold text-white mx-2"> Ajouter au panier </span></button>
+                <button className="flex my-1 flex-row items-center justify-center rounded bg-gray-700 py-2 w-full px-3 hover:border-gray-300 text-white hover:bg-gray-800  "><FaMoneyBill className="h-10 w-5 mx-3 "/> J'achète <span className="font-extrabold text-white mx-2"> {prod[4]} Fcfa</span></button>
             <div className="flex flex-row py-6"> <button type="button" className="text-white bg-blue-400 hover:bg-blue-500 py-3 px-2 rounded-lg flex "><FaShareAlt className="h-4 w-full" /><FaFacebookSquare className="w-full h-5 px-1"/> partager</button></div>
         </div>
     </div>
