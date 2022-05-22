@@ -2,7 +2,7 @@ import React from 'react'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import NavBarCategories from '../components/NavBarCategories';
-import ProductsListPanier from '../components/Categorie_Products/ProductsCategories';
+import ProductsListPanier from '../components/Panier_Product/ProductsListPanier';
 import ProductsCategories from '../components/Categorie_Products/ProductsCategories';
 
 function Panier() {
@@ -102,7 +102,7 @@ function Panier() {
        <NavBarCategories/>     
        <div className='flex flex-col'>
          {/*  Listes des catégories */}
-           <ProductsListPanier/>
+           <ProductsListPanier products={products}  />
          {/* Listes Produits  */}
          <ProductsCategories products={products} title="Vous allez adorez" />
        </div>
